@@ -19,5 +19,52 @@
 
 #node-container {
 }
-#node-list {
+// ul containtining the current oscillator nodes
+#toneList {
+  padding-top: 5px;
+
+  li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 20px 0px 0px;
+    button{
+      width: 10%;
+      background-color: coral;
+      border-style: none;
+    }
+
+    // input{
+    //   width: 80%;
+    // }
+    input {
+      -webkit-appearance: none;
+      width:80%;
+      height: 5px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+        // padding: 2px;
+    }
+
+    input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #1fb0d4;
+      cursor: pointer;
+    }
+    
+    input::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      background:#1fb0d4;
+      cursor: pointer;
+   }
+}
+
+
 }

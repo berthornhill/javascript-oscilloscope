@@ -18,13 +18,17 @@ class Tone {
     this.oscillator.detune.value = 100;
   }
 
-  detune(x) {
-    this.oscillator.frequency.value = x;
+  detune(hz) {
+    this.oscillator.frequency.value = hz;
   }
 
   play() {
     this.initialize();
     this.oscillator.start();
+  }
+
+  adjustGain(volume) {
+    this.gainNode.value = volume;
   }
 
   stop() {
@@ -56,7 +60,7 @@ class Tone {
     const pitchBar = document.createElement("input");
     pitchBar.type = "range";
     pitchBar.min = 20;
-    pitchBar.max = 8000;
+    pitchBar.max = 4000;
     pitchBar.value = 440;
     pitchBar.classname = "pitch-bar";
 

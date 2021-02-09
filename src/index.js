@@ -3,14 +3,8 @@ import canvasDraw from "./scripts/canvas";
 import Tone from "./scripts/tone";
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("Hello World");
-
+ 
   canvasDraw();
-
-  // debugger;
-  const helloWorld = document.createElement("h1");
-  helloWorld.innerText = "Sound ON!";
-  document.body.append(helloWorld);
 
   const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   window.Tone = Tone;
