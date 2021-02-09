@@ -3,7 +3,6 @@ import canvasDraw from "./scripts/canvas";
 import Tone from "./scripts/tone";
 
 document.addEventListener("DOMContentLoaded", () => {
- 
   canvasDraw();
 
   const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
