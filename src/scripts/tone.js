@@ -6,27 +6,36 @@ class Tone {
     this.context = context;
     this.playing = false;
     this.nodeEle = this.generateToneControllers();
-  }
-
-  initialize() {
     this.oscillator = this.context.createOscillator();
     this.gainNode = this.context.createGain();
     this.oscillator.connect(this.gainNode);
     this.gainNode.connect(this.context.destination);
     this.gainNode.gain.value = 0.5;
 
+    // setting wave type, "sine" and initial value at 440Hz, or A 440.
+    // detune value is set to 100 and referenced in cents.
+
     this.oscillator.type = "sine";
     this.oscillator.frequency.setValueAtTime(440, this.context.currentTime);
     this.oscillator.detune.value = 100;
+
+    // step keeps track of the motion of the wave.
+    // starting value is always based off frequency and incremented from there
+    // it will be reset every change in oscillator frequency.
+
+    this.step;
+    this.setStep();
+
+    // setting these two constants to reference and not calculate every animate loop
+
+    this.twoPI = 2 * Math.PI;
+    this.t = 0.01 / 1600;
   }
 
+  // sets frequency after change from user. Also resets step value to new frequency.
   detune(hz) {
     this.oscillator.frequency.value = hz;
-  }
-
-  play() {
-    this.initialize();
-    this.oscillator.start();
+    this.setStep();
   }
 
   adjustGain(volume) {
@@ -35,9 +44,23 @@ class Tone {
     debugger;
   }
 
+  // this.frequency = 2 * Math.PI * this.hz * (this.t / this.canvas.width);
+
+  setStep() {
+    this.step = this.twoPI * this.oscillator.frequency.value * this.t;
+  }
+
+  play() {
+    // this.initialize();
+    this.oscillator.start();
+    this.setStep();
+  }
+
   stop() {
     this.gainNode.gain.exponentialRampToValueAtTime(0.001, 1);
     this.oscillator.stop(1.5);
+    this.oscillator.frequency.value = 0;
+    this.setStep();
     this.nodeEle.remove();
   }
 
@@ -93,33 +116,6 @@ class Tone {
     toneLi.append(pitchBar);
     return toneLi;
   }
-
-  // canvasDraw() {
-  //   let canvas = document.getElementById("canvas");
-  //   let ctx = canvas.getContext("2d");
-  //   // ctx.fillStyle = "#8becdfc9";
-  //   // ctx.fillRect(0, 0, canvas.width, canvas.height);
-  //   debugger;
-  //   canvas.width = innerWidth;
-  //   canvas.height = innerHeight;
-
-  //   ctx.beginPath();
-  //   ctx.moveTo(0, canvas.height / 2);
-
-  //   let f = 440;
-
-  //   // let f = this.oscillator.frequency.value || 0;
-  //   let t = 0.01;
-
-  //   for (let i = 0; i < canvas.width; i++) {
-  //     ctx.lineTo(
-  //       i,
-  //       canvas.height / 2 +
-  //         Math.sin(i * (2 * Math.PI * f * (t / canvas.width))) * 500
-  //     );
-  //   }
-  //   ctx.stroke();
-  // }
 }
 
 export default Tone;
