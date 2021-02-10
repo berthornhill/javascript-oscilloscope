@@ -6,7 +6,6 @@ class Tone {
     this.context = context;
     this.playing = false;
     this.nodeEle = this.generateToneControllers();
-    this.canvasDraw();
   }
 
   initialize() {
