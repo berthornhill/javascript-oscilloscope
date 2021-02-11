@@ -57,8 +57,11 @@ class Tone {
   }
 
   stop() {
-    this.gainNode.gain.exponentialRampToValueAtTime(0.001, 1);
-    this.oscillator.stop(1.5);
+    this.gainNode.gain.exponentialRampToValueAtTime(
+      0.01,
+      this.context.currentTime + 2
+    );
+    this.oscillator.stop(1);
     this.oscillator.frequency.value = 0;
     this.setStep();
     this.nodeEle.remove();
@@ -89,9 +92,10 @@ class Tone {
     volumeSlider.type = "range";
     volumeSlider.min = 0.0;
     volumeSlider.max = 1.0;
-    volumeSlider.value = 0.5;
     volumeSlider.step = 0.01;
+    volumeSlider.value = 0.5; // 1.0
     volumeSlider.className = "volume";
+    debugger;
 
     volumeSlider.addEventListener("change", (event) => {
       debugger;
@@ -102,7 +106,7 @@ class Tone {
     const pitchBar = document.createElement("input");
     pitchBar.type = "range";
     pitchBar.min = 20;
-    pitchBar.max = 4000;
+    pitchBar.max = 3000;
     pitchBar.value = 440;
     pitchBar.className = "pitch-bar";
 

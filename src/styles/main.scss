@@ -23,7 +23,9 @@
   margin: auto;
   button {
     color: white;
-    text-shadow: 0 0 6px #fff, 0 0 15px #fff;
+    font-size: 12px;
+    font-weight: 700;
+    // text-shadow: 0 0 6px #fff, 0 0 15px #fff;
   }
 }
 #canvas {
@@ -47,18 +49,23 @@
     align-items: center;
     padding: 5px 0px 0px 0px;
     button {
+      margin-top: 4px;
+      font-size: 12px;
+      font-weight: 700;
       width: 20%;
-      color: black;
-      background-color: #49ff18;
+      color: rgb(255, 255, 255);
+      background-color: #15b21a;
       border-style: none;
       height: 40px;
-      box-shadow: 0 0 2px #49ff18, 0 0 0px #49ff18, 0 0 2px #49ff18,
-        0 0 5px #49ff18, -2px 1px 0px rgba(206, 89, 55, 0%);
+      box-shadow: 0 0 2px #15b21a, 0 0 2px#15b21a, 0 0 5px #15b21a,
+        -2px 1px 0px rgba(206, 89, 55, 0%);
+      transition: text-shadow 0.3s;
     }
 
     button:hover {
       cursor: pointer;
-      background-color: rgba(42, 194, 0, 0.719);
+      // background-color: rgba(42, 194, 0, 0.719);
+      text-shadow: 0 0 6px #fff, 0 0 15px #fff;
     }
 
     // input{
@@ -87,6 +94,7 @@
         0 0 0px #49ff18, 0 0 10px #49ff18, 0 0 5px #49ff18,
         7px 1px 29px rgba(206, 89, 55, 0%);
       // padding: 2px;
+      transition: box-shadow 0.3s;
     }
 
     input::-webkit-slider-thumb {
@@ -96,8 +104,11 @@
       height: 20px;
       border-radius: 50%;
       background: hsl(184, 100%, 50%);
-      box-shadow: 0 0 7px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 2px #49ff18,
-        0 0 9px #49ff18, 0 0 0px #49ff18, 0 0 10px #49ff18, 0 0 5px #49ff18,
+      // box-shadow: 0 0 7px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 2px #49ff18,
+      //   0 0 9px #49ff18, 0 0 0px #49ff18, 0 0 10px #49ff18, 0 0 5px #49ff18,
+      //   7px 1px 29px rgba(206, 89, 55, 0%);
+      box-shadow: 0 0 10px #fff, 0 0 8px #fff, 0 0 8px #fff, 0 0 4px #49ff18,
+        0 0 11px #49ff18, 0 0 0px #49ff18, 0 0 12px #49ff18, 0 0 7px #49ff18,
         7px 1px 29px rgba(206, 89, 55, 0%);
       cursor: pointer;
     }
@@ -112,6 +123,10 @@
         7px 1px 29px rgba(206, 89, 55, 0%);
       cursor: pointer;
     }
+
+    input:focus {
+      height: 3px;
+    }
   }
 }
 
@@ -124,9 +139,10 @@
   margin-top: 10px;
   box-shadow: 0 0 2px #b51ad1, 0 0 0px #b51ad1, 0 0 2px #b51ad1, 0 0 5px #b51ad1,
     -2px 1px 0px rgba(206, 89, 55, 0%);
-  // transition: background-color 0.3s;
+  transition: text-shadow 0.3s;
 }
 
 .new-node:hover {
-  background-color: hsla(291, 78%, 46%, 0.445);
+  // background-color: hsla(291, 78%, 46%, 0.445);
+  text-shadow: 0 0 6px #fff, 0 0 15px #fff;
 }

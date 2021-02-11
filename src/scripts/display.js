@@ -49,7 +49,7 @@ class Display {
     for (let i = 0; i < this.canv.canvas.width; i++) {
       this.canv.ctx.lineTo(
         i,
-        this.canv.yAxis + this.calculateWave(i) * 200
+        this.canv.yAxis + this.calculateWave(i) * 125
         // Math.sin(i * this.canv.frequency + this.canv.step) * 300
       );
     }
