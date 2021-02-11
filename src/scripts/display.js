@@ -34,7 +34,9 @@ class Display {
     debugger;
     requestAnimationFrame(this.animateWave);
     // this.draw();
-    this.canv.ctx.clearRect(
+
+    this.canv.ctx.fillStyle = "rgba(0,0,0,0.03)";
+    this.canv.ctx.fillRect(
       0,
       0,
       this.canv.canvas.width,
@@ -52,6 +54,7 @@ class Display {
       );
     }
 
+    this.canv.ctx.strokeStyle = "hsl(190, 70%, 50%)";
     this.canv.ctx.stroke();
     this.calculateStep();
   }
