@@ -1,7 +1,10 @@
 #main {
+  // background-color: rgba(0, 0, 0, 0.94);
+  // transition: height 1s;
 }
 #outer-main {
-  height: 80vh;
+  // height: 80vh;
+  height: auto;
   min-height: 700px;
   // background-color: #056812;
   margin: auto;
@@ -14,17 +17,24 @@
 #inner-main {
   width: 75%;
   min-width: 600px;
-  height: 200px;
-  background-color: rgba(127, 38, 228, 0.589);
+  // height: 237px;
+  height: auto;
+  // background-color: rgba(127, 38, 228, 0.589);
   margin: auto;
+  button {
+    color: white;
+    text-shadow: 0 0 6px #fff, 0 0 15px #fff;
+  }
 }
 #canvas {
   height: 600px;
   width: 1600px;
-  border: 2px solid black;
+  background-color: white;
+  // border: 2px solid black;
 }
 
 #node-container {
+  // transition: all 1s;
 }
 // ul containtining the current oscillator nodes
 #toneList {
@@ -34,25 +44,48 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0px 20px 0px 0px;
+    align-items: center;
+    padding: 5px 0px 0px 0px;
     button {
-      width: 10%;
-      background-color: coral;
+      width: 20%;
+      color: black;
+      background-color: #49ff18;
       border-style: none;
+      height: 40px;
+      box-shadow: 0 0 2px #49ff18, 0 0 0px #49ff18, 0 0 2px #49ff18,
+        0 0 5px #49ff18, -2px 1px 0px rgba(206, 89, 55, 0%);
+    }
+
+    button:hover {
+      cursor: pointer;
+      background-color: rgba(42, 194, 0, 0.719);
     }
 
     // input{
     //   width: 80%;
     // }
+
+    .volume {
+      width: 30%;
+      margin-left: 15px;
+    }
+
+    .pitch-bar {
+      width: 70%;
+      margin-left: 15px;
+    }
     input {
       -webkit-appearance: none;
-      width: 80%;
-      height: 5px;
-      background: #d3d3d3;
+
+      height: 2px;
+      background: #ffffff;
       outline: none;
       opacity: 0.7;
       -webkit-transition: 0.2s;
       transition: opacity 0.2s;
+      box-shadow: 0 0 1px #fff, 0 0 2px #49ff18, 0 0 9px #49ff18,
+        0 0 0px #49ff18, 0 0 10px #49ff18, 0 0 5px #49ff18,
+        7px 1px 29px rgba(206, 89, 55, 0%);
       // padding: 2px;
     }
 
@@ -61,15 +94,39 @@
       appearance: none;
       width: 20px;
       height: 20px;
-      background: #1fb0d4;
+      border-radius: 50%;
+      background: hsl(184, 100%, 50%);
+      box-shadow: 0 0 7px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 2px #49ff18,
+        0 0 9px #49ff18, 0 0 0px #49ff18, 0 0 10px #49ff18, 0 0 5px #49ff18,
+        7px 1px 29px rgba(206, 89, 55, 0%);
       cursor: pointer;
     }
 
     input::-moz-range-thumb {
       width: 20px;
       height: 20px;
-      background: #1fb0d4;
+      border-radius: 50%;
+      background: hsl(183, 99%, 62%);
+      box-shadow: 0 0 7px #fff, 0 0 3px #fff, 0 0 1px #fff, 0 0 2px #49ff18,
+        0 0 9px #49ff18, 0 0 0px #49ff18, 0 0 10px #49ff18, 0 0 5px #49ff18,
+        7px 1px 29px rgba(206, 89, 55, 0%);
       cursor: pointer;
     }
   }
+}
+
+.new-node {
+  width: 20%;
+  background-color: hsl(291, 78%, 46%);
+  border-style: none;
+  height: 40px;
+  padding: 5px 0px 0px 0px;
+  margin-top: 10px;
+  box-shadow: 0 0 2px #b51ad1, 0 0 0px #b51ad1, 0 0 2px #b51ad1, 0 0 5px #b51ad1,
+    -2px 1px 0px rgba(206, 89, 55, 0%);
+  // transition: background-color 0.3s;
+}
+
+.new-node:hover {
+  background-color: hsla(291, 78%, 46%, 0.445);
 }

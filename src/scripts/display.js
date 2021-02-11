@@ -18,7 +18,7 @@ class Display {
   createNewNodeButton() {
     this.nodeContainer = document.getElementById("node-container");
     this.newNodeButton = document.createElement("button");
-
+    this.newNodeButton.className = "new-node";
     this.newNodeButton.innerHTML = "Add Node";
 
     this.newNodeButton.addEventListener("click", () => {

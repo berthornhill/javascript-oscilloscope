@@ -107,6 +107,8 @@ section {
 }
 body {
   line-height: 1;
+  // font-family: "Noto Serif SC", serif;
+  background-color: rgba(0, 0, 0, 0.94);
 }
 ol,
 ul {
@@ -126,4 +128,11 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+button:focus {
+  outline: none;
+}
+button:hover {
+  cursor: pointer;
+  // background-color: rgb(255, 255, 255);
 }
