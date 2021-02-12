@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
-    <title>Frequency</title>
+    <title>Javascript Oscilloscope</title>
   </head>
 
   <body>
@@ -15,9 +15,9 @@
           <div class="left-nav"></div>
           <h1>𝑓</h1>
           <div class="links">
-            <a href="#">about</a>
-            <a href="#">github</a>
-            <a href="#">linkedIn</a>
+            <button href="#" id="about">about</button>
+            <a href="https://github.com/berthornhill/js_project">github</a>
+            <a href="#">linkedin</a>
           </div>
         </div>
       </div>
@@ -42,6 +42,135 @@
         <div></div>
       </div>
     </footer>
+
+    <!-- Entry Modal => disappears on click -->
+
+    <div id="entry-modal" class="modal showing">
+      <div id="modal-content" class="modal-content">
+        <span
+          >this site is best experienced with sound turned on and with
+          headphones</span
+        >
+        <span class="mid-text"
+          ><span class="f-text"> 𝑓 </span>thanks for visiting and enjoy
+          <span class="f-text text-rev"> 𝑓 </span>
+        </span>
+        <span>click anywhere to enter</span>
+      </div>
+      <div id="modal-screen" class="modal-screen"></div>
+    </div>
+
+    <!-- About modal => opens on "about" button event listener-->
+    <div id="about-modal" class="modal">
+      <div id="about-modal-content" class="modal-content">
+        <div class="modal-header">
+          <div class="modal-header-left"></div>
+          <h3>JavaScript Oscilloscope</h3>
+          <button id="close-button">⨉</button>
+        </div>
+        <div class="text-bullet">
+          <div class="bold-text">What is it?</div>
+          <div>
+            This program is a type of interactive oscilloscope.
+            <span class="bold-text">
+              An oscilloscope is a scientific instrument that displays a
+              waveform from an electrical source, which can then be observed and
+              analyzed visually.
+            </span>
+            This particular oscilloscope uses the
+            <span class="bold-text"> JavaScript AudioContextAPI </span> to
+            generate a periodic wave at a given pitch (an OscillatorNode).
+          </div>
+          <div>
+            This
+            <span class="bold-text"> pitch (Hz)</span> is then used to calculate
+            and derive a very zoomed-in, visual representation of the wave which
+            is rendered as an animation using the
+            <span class="bold-text"> HTML5 CanvasAPI</span> . Each
+            OscillatorNode’s <span class="bold-text"> frequency </span>, or
+            <span class="bold-text"> pitch</span>, can be raised or lowered with
+            the right most range-slider and can be read as the number of waves
+            shown on screen at any time. Doubling the frequency of the wave will
+            amount to twice as many waves on screen halving the frequency will
+            have the opposite effect.
+          </div>
+        </div>
+
+        <div class="text-bullet">
+          <div class="bold-text">What do I do with it?</div>
+          <div>
+            Have fun! Explore the result of the wave form when moving the slider
+            bar. Add more tone nodes and explore how they interact with each
+            other, both audibly and visually. The results can be horrifying and
+            beautiful. What happens when pitches are far apart vs when they are
+            right next to each other? Can you make a consonant chord?
+          </div>
+          <div>
+            <span class="bold-text"> Pro-tip: </span>
+            The sliders can be adjusted with the keyboard-arrow keys which can
+            not only create a neat, smooth visual effect but also makes for some
+            really wild acoustic results.
+          </div>
+        </div>
+
+        <div class="text-bullet">
+          <div class="bold-text">What is an oscillator?</div>
+          <div>
+            An oscillator is a wave that repeatedly moves back and forth, or a
+            wave that is oscillating. In the context of this application, the
+            OscillatorNode creates an instance of an oscillator at a set
+            frequency in the form of a sine wave and outputs a constant tone.
+          </div>
+        </div>
+
+        <div class="text-bullet">
+          <div class="bold-text">What exactly is pitch?</div>
+          <div>
+            In musical application,
+            <span class="bold-text">
+              pitch describes the audible quality of a sound wave, relative to
+              its frequency measured in Hz, or oscillations per second.
+            </span>
+            A sound with a higher frequency is described as “higher in pitch”
+            than a sound with lower frequency. The human audible range is
+            generally assumed to be frequencies from 20 Hz to 20,000Hz. This
+            program is set to generate pitches that range from 20 Hz to 3000 Hz.
+          </div>
+          <div>
+            Pitch can also be used to describe named frequencies which make up
+            various scales, the primary organizing principle in music aside from
+            rhythm. These namings can be quite regional and cultural but one
+            relatively common example is the named note “A” which orchestras
+            tune to is most commonly referring to the frequency 440 Hz, at least
+            in North America. Hence the term “A 440”.
+          </div>
+        </div>
+
+        <div class="text-bullet">
+          <div class="bold-text">About the developer:</div>
+          <div>
+            I am a full stack software engineer, musician and educator. I have a
+            love of computer, learning, music and sharing my enthusiasm for
+            these things with anyone who will listen.
+          </div>
+          <div>
+            Currently, I’m building in
+            <span class="bold-text">
+              Ruby, Rails, JavaScript, React, Redux
+            </span>
+            but I am always looking to learn more languages and grow as a
+            developer. As a musician performed and recorded around the world but
+            mostly around New York City. Feel free to follow me on
+            <a href="#">LinkedIn</a>, check out my
+            <a href="https://github.com/berthornhill/js_project">GitHub</a> if
+            you‘d like to connect or collaborate.
+          </div>
+          Thanks for visiting and I hope you enjoy my oscilloscope! - Bert Hill
+          <div></div>
+        </div>
+      </div>
+      <div id="about-modal-screen" class="modal-screen"></div>
+    </div>
     <script src="./dist/bundle.js"></script>
   </body>
 </html>

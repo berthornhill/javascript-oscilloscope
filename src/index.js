@@ -1,65 +1,44 @@
 import "./styles/index.scss";
-import canvasDraw from "./scripts/canvas";
-import Tone from "./scripts/tone";
-import Wave from "./scripts/canvas";
+
 import Display from "./scripts/display";
 
 document.addEventListener("DOMContentLoaded", () => {
   const display = new Display();
 });
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   // old initiation
-//   // canvasDraw();
+const modal = document.getElementById("entry-modal");
 
-//   const wave = new Wave();
-//   animate = animate.bind(wave);
-//   animate();
+modal.addEventListener("click", () => {
+  let modalScreen = document.getElementById("modal-screen");
+  let modalContent = document.getElementById("modal-content");
 
-//   const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-//   // window.Tone = Tone;
+  modalContent.classList.add("hide");
+  modalScreen.classList.add("hide");
 
-//   const nodeContainer = document.getElementById("node-container");
-//   const newNodeButton = document.createElement("button");
-//   newNodeButton.innerHTML = "New Node";
-//   newNodeButton.addEventListener("click", () => {
-//     debugger;
-//     let tone = new Tone(audioCtx);
-//     // tones.push(tone);
-//     console.log("Generating tone node. beep boop beep.");
-//   });
+  setTimeout(function () {
+    modal.className = "modal";
+  }, 1000);
+});
 
-//   nodeContainer.append(newNodeButton);
-// });
+const aboutModal = document.getElementById("about-modal");
 
-// function animate() {
-//   debugger;
-//   requestAnimationFrame(animate);
-//   // this.draw();
-//   this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+const aboutButton = document.getElementById("about");
+aboutButton.addEventListener("click", () => {
+  aboutModal.classList.add("showing");
+});
 
-//   this.ctx.beginPath();
-//   this.ctx.moveTo(0, canvas.height / 2);
+const aboutClose = document.getElementById("close-button");
+aboutClose.addEventListener("click", () => {
+  let modalScreen = document.getElementById("about-modal-screen");
+  let modalContent = document.getElementById("about-modal-content");
+  debugger;
+  modalContent.classList.add("hide");
+  modalScreen.classList.add("hide");
 
-//   for (let i = 0; i < this.canvas.width; i++) {
-//     this.ctx.lineTo(
-//       i,
-//       this.yAxis + Math.sin(i * this.frequency + this.step) * 300
-//       // Math.sin(i * this.frequency + this.step) * 300
-//     );
-//   }
-//   this.ctx.stroke();
-//   this.step += this.frequency;
-//   // this.step > this.canvas.width ? (this.step = 0.01) : (this.step += this.step);
-// }
-
-// for (let i = 0; i < this.canvas.width; i++) {
-//   this.ctx.lineTo(
-//     i,
-//     this.canvas.height / 2 +
-//       Math.sin(
-//         i * (2 * Math.PI * this.hz * (this.t / this.canvas.width)) + this.step
-//       ) *
-//         200
-//   );
-// }
+  setTimeout(function () {
+    debugger;
+    aboutModal.className = "modal";
+    modalContent.className = "modal-content";
+    modalScreen.className = "modal-screen";
+  }, 700);
+});

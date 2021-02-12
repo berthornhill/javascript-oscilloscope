@@ -57,6 +57,21 @@
     padding-left: 50px;
     transition: text-shadow 0.3s;
   }
+  button {
+    color: white;
+    text-decoration: none;
+    padding-left: 50px;
+    transition: text-shadow 0.3s;
+    background: none;
+    border-style: none;
+  }
+  button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 50px #49ff18,
+      0 0 68px #49ff18, 0 0 28px #49ff18, 0 0 55px #49ff18, 0 0 35px #49ff18,
+      7px 1px 29px rgba(206, 89, 55, 0);
+  }
 
   a:hover {
     cursor: pointer;
