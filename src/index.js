@@ -31,12 +31,11 @@ const aboutClose = document.getElementById("close-button");
 aboutClose.addEventListener("click", () => {
   let modalScreen = document.getElementById("about-modal-screen");
   let modalContent = document.getElementById("about-modal-content");
-  debugger;
+
   modalContent.classList.add("hide");
   modalScreen.classList.add("hide");
 
   setTimeout(function () {
-    debugger;
     aboutModal.className = "modal";
     modalContent.className = "modal-content";
     modalScreen.className = "modal-screen";

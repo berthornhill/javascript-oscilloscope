@@ -4,7 +4,8 @@ import Canvas from "./canvas";
 class Display {
   constructor() {
     this.canv = new Canvas();
-    this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    this.AudioContext = window.AudioContext || window.webkitAudioContext;
+    this.audioCtx = new this.AudioContext();
     this.toneNodes = [];
 
     this.animateWave = this.animateWave.bind(this);
@@ -31,7 +32,7 @@ class Display {
   }
 
   animateWave() {
-    debugger;
+    // debugger;
     requestAnimationFrame(this.animateWave);
     // this.draw();
 
@@ -61,38 +62,38 @@ class Display {
 
   // Math.sin( location * ( 2pi*oscillatorFrequency * t ) + step)
   calculateWave(i) {
-    debugger;
+    // debugger;
     // if (this.toneNodes.length === 0) return 0;
     let result = 0;
 
     for (let j = 0; j < this.toneNodes.length; j++) {
-      debugger;
+      // debugger;
       let node = this.toneNodes[j];
-      debugger;
+      // debugger;
       result += Math.sin(
         i * (this.canv.twoPI * node.oscillator.frequency.value * this.canv.t) +
           node.step
       );
     }
-    debugger;
+    // debugger;
 
     return result;
   }
 
   //adds step to increment motion of wave.
   calculateStep() {
-    debugger;
+    // debugger;
 
     for (let i = 0; i < this.toneNodes.length; i++) {
-      debugger;
+      // debugger;
       this.toneNodes[i].step += this.incrementStep(this.toneNodes[i]);
-      debugger;
+      // debugger;
     }
   }
 
   // return calculates frequency to increment
   incrementStep(node) {
-    debugger;
+    // debugger;
     return this.canv.twoPI * node.oscillator.frequency.value * this.canv.t;
   }
 }

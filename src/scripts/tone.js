@@ -10,7 +10,8 @@ class Tone {
     this.gainNode = this.context.createGain();
     this.oscillator.connect(this.gainNode);
     this.gainNode.connect(this.context.destination);
-    this.gainNode.gain.value = 0.5;
+    // this.gainNode.gain.value = 0.5;
+    this.gainNode.gain.setValueAtTime(0.5, context.currentTime);
 
     // setting wave type, "sine" and initial value at 440Hz, or A 440.
     // detune value is set to 100 and referenced in cents.
@@ -34,14 +35,16 @@ class Tone {
 
   // sets frequency after change from user. Also resets step value to new frequency.
   detune(hz) {
-    this.oscillator.frequency.value = hz;
+    // this.oscillator.frequency.value = hz;
+    this.oscillator.frequency.setValueAtTime(hz, this.context.currentTime);
     this.setStep();
   }
 
   adjustGain(volume) {
-    debugger;
-    this.gainNode.gain.value = volume;
-    debugger;
+    // debugger;
+    // this.gainNode.gain.value = volume;
+    this.gainNode.gain.setValueAtTime(volume, this.context.currentTime);
+    // debugger;
   }
 
   // this.frequency = 2 * Math.PI * this.hz * (this.t / this.canvas.width);
@@ -57,18 +60,28 @@ class Tone {
   }
 
   stop() {
-    this.gainNode.gain.exponentialRampToValueAtTime(
-      0.01,
-      this.context.currentTime + 2
-    );
-    this.oscillator.stop(1);
+    // debugger;
+    this.gainNode.gain.linearRampToValueAtTime(0, this.context.currentTime + 1);
+    // this.gainNode.gain.linearRampToValueAtTime(0.01,this.context.currentTime + 1);
+
+    // this.oscillator.frequency.setValueAtTime(
+    //   0,
+    //   this.context.currentTime + 0.01
+    // );
+    // debugger;
     this.oscillator.frequency.value = 0;
+    this.oscillator.frequency.setValueAtTime(0, this.context.currentTime);
+
+    this.oscillator.stop(1);
+
+    // debugger;
+
     this.setStep();
     this.nodeEle.remove();
   }
 
   generateToneControllers() {
-    debugger;
+    // debugger;
     const toneList = document.getElementById("toneList");
     const toneLi = document.createElement("li");
     toneList.append(toneLi);
@@ -95,10 +108,10 @@ class Tone {
     volumeSlider.step = 0.01;
     volumeSlider.value = 0.5; // 1.0
     volumeSlider.className = "volume";
-    debugger;
+    // debugger;
 
     volumeSlider.addEventListener("change", (event) => {
-      debugger;
+      // debugger;
       this.adjustGain(event.target.value);
     });
 
